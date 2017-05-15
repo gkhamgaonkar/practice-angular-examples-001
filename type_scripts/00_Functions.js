@@ -101,6 +101,7 @@ var addTwoNumbersAndLog = function (x, y) {
 var LamdaFunctionSayHelloWorld = function () {
     console.info("Hello World");
 };
+//step 2 : function definition
 function sayHello(name, lastName) {
     if (lastName == undefined) {
         console.log("Hello " + name);
@@ -109,6 +110,9 @@ function sayHello(name, lastName) {
         console.log("Hello " + name + "  " + lastName);
     }
 }
+/*
+ * Funtion returning arrays
+ */
 function disp() {
     return new Array("Mary", "Tom", "Jack", "Jill");
 }
@@ -137,7 +141,8 @@ log("Result of adding 100 and 12 is : " + addTwoNumbersAndLog(100, 12)); // will
 LamdaFunctionSayHelloWorld();
 sayHello("abc");
 sayHello("abc", "pqr");
+log("==============(Functions returning array)==============");
 var nums = disp();
 for (var i in nums) {
-    console.log(nums[i]);
+    log(nums[i]);
 }
