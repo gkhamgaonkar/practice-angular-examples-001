@@ -80,24 +80,6 @@ var log = function ( logData : any , logType : String = "DEBUG"){
 };
 
 
-/*
- * Anonymous Functions - 02 calculate square
- * Utility function : to log data
- */
-
-var log = function ( logData : any , logType : String = "DEBUG"){
-    if(logType==null || logType===undefined || logType == "DEBUG" ){
-        console.log("DEBUG LOG : " + logData);
-    }else if (logType == "ERROR" ){
-        console.error("ERROR LOG : " + logData);
-    }else if (logType == "WARN" ){
-        console.warn("WARN LOG : " + logData);
-    }else if (logType == "INFO" ){
-        console.info("INFO LOG : " + logData);
-    }
-};
-
-
 
 /*
  * Anonymous Functions - 03 anonymous recursive function
