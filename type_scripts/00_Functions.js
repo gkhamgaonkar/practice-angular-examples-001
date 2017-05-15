@@ -109,6 +109,10 @@ function sayHello(name, lastName) {
         console.log("Hello " + name + "  " + lastName);
     }
 }
+function disp() {
+    return new Array("Mary", "Tom", "Jack", "Jill");
+}
+;
 /***
  * runs with different values
  *
@@ -133,3 +137,7 @@ log("Result of adding 100 and 12 is : " + addTwoNumbersAndLog(100, 12)); // will
 LamdaFunctionSayHelloWorld();
 sayHello("abc");
 sayHello("abc", "pqr");
+var nums = disp();
+for (var i in nums) {
+    console.log(nums[i]);
+}

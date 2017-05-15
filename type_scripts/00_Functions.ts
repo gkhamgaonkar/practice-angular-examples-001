@@ -118,10 +118,11 @@ var LamdaFunctionSayHelloWorld = () => {
 /*
  * Funtion Overloading
  */
+//step 1 : define first overloaded method
 function sayHello(name: string): void;
+//step 2 : define second overloaded method
 function sayHello(name: string, lastName: string): void;
-
-
+//step 2 : function definition
 function sayHello(name: string, lastName?: string): void {
     if (lastName == undefined) {
         console.log("Hello " + name);
@@ -129,6 +130,11 @@ function sayHello(name: string, lastName?: string): void {
         console.log("Hello " + name + "  " + lastName);
     }
 }
+
+
+function disp():string[] {
+    return new Array("Mary","Tom","Jack","Jill")
+} ;
 
 
 /***
@@ -155,4 +161,11 @@ log("Result of adding 100 and 12 is : " + addTwoNumbersAndLog(100, 12)); // will
 LamdaFunctionSayHelloWorld();
 sayHello("abc");
 sayHello("abc", "pqr");
+
+
+var nums:string[] = disp()
+for(var i in nums) {
+    console.log(nums[i])
+}
+
 
