@@ -80,6 +80,33 @@ var log = function ( logData : any , logType : String = "DEBUG"){
 };
 
 
+/*
+ * Anonymous Functions - 02 calculate square
+ * Utility function : to log data
+ */
+
+var log = function ( logData : any , logType : String = "DEBUG"){
+    if(logType==null || logType===undefined || logType == "DEBUG" ){
+        console.log("DEBUG LOG : " + logData);
+    }else if (logType == "ERROR" ){
+        console.error("ERROR LOG : " + logData);
+    }else if (logType == "WARN" ){
+        console.warn("WARN LOG : " + logData);
+    }else if (logType == "INFO" ){
+        console.info("INFO LOG : " + logData);
+    }
+};
+
+
+
+/*
+ * Anonymous Functions - 03 anonymous recursive function
+  */
+
+(function (logValue:string) {
+    var x = "Hello!!";
+    console.log(logValue)
+})("Hello Ji!!")      // the function invokes itself using a pair of parentheses ()
 
 /***
  * runs with different values
@@ -99,6 +126,7 @@ log("Passing variable with default value as  params " , "INFO");
 log("Result =  " + multiplicationByFactor(50, 0.3) , "ERROR");
 log("==============(Anonymous Functions )==============");
 log("Square of " + 12 + " is : " + square(12));
+
 
 
 
