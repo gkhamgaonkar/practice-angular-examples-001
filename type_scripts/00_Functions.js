@@ -76,31 +76,16 @@ var log = function (logData, logType) {
     }
 };
 /*
- * Anonymous Functions - 02 calculate square
- * Utility function : to log data
- */
-var log = function (logData, logType) {
-    if (logType === void 0) { logType = "DEBUG"; }
-    if (logType == null || logType === undefined || logType == "DEBUG") {
-        console.log("DEBUG LOG : " + logData);
-    }
-    else if (logType == "ERROR") {
-        console.error("ERROR LOG : " + logData);
-    }
-    else if (logType == "WARN") {
-        console.warn("WARN LOG : " + logData);
-    }
-    else if (logType == "INFO") {
-        console.info("INFO LOG : " + logData);
-    }
-};
-/*
  * Anonymous Functions - 03 anonymous recursive function
   */
 (function (logValue) {
     var x = "Hello!!";
     console.log(logValue);
 })("Hello Ji!!"); // the function invokes itself using a pair of parentheses ()
+/*
+ * Lambda Functions - 01 add x and y
+ */
+var addTwoNumbers = function (x, y) { return y + x; };
 /***
  * runs with different values
  *
@@ -119,3 +104,5 @@ log("Passing variable with default value as  params ", "INFO");
 log("Result =  " + multiplicationByFactor(50, 0.3), "ERROR");
 log("==============(Anonymous Functions )==============");
 log("Square of " + 12 + " is : " + square(12));
+log("==============(Lambda Functions)==============");
+log("Result of adding 100 and 12 is : " + addTwoNumbers(100, 12)); //outputs 110
