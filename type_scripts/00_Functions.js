@@ -111,12 +111,20 @@ function sayHello(name, lastName) {
     }
 }
 /*
- * Funtion returning arrays
+ * Function returning arrays
  */
-function disp() {
+function getNamesOfPeople() {
     return new Array("Mary", "Tom", "Jack", "Jill");
 }
 ;
+/*
+ * Function passing arrays
+ */
+function showUserNames(arr_names) {
+    for (var i = 0; i < arr_names.length; i++) {
+        console.log(arr_names[i]);
+    }
+}
 /***
  * runs with different values
  *
@@ -142,7 +150,6 @@ LamdaFunctionSayHelloWorld();
 sayHello("abc");
 sayHello("abc", "pqr");
 log("==============(Functions returning array)==============");
-var nums = disp();
-for (var i in nums) {
-    log(nums[i]);
-}
+var namesOfPeople = getNamesOfPeople();
+log("==============(Functions passing arrays)==============");
+showUserNames(namesOfPeople);

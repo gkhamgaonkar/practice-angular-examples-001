@@ -15,3 +15,6 @@ This project aims to capture examples,which i encountered while learning Angular
 1. passing parameters, perform single line actions
 1. passing parameters, perform multi line actions
 1. not passing parameters.
+###### Arrays
+1. Functions returning arrays
+2. Functions passing arrays
