@@ -44,7 +44,7 @@ function addNumbersOptionalPametersInFront(salutation) {
 /**
  * Default Values for Parameters - 01
  * Default value parameter should always be the last parameter
-  */
+ */
 function multiplicationByFactor(numberValue, factor) {
     if (factor === void 0) { factor = 0.1; }
     console.log("calling multiplicationByFactor with params " + numberValue + " and  " + factor);
@@ -77,7 +77,7 @@ var log = function (logData, logType) {
 };
 /*
  * Anonymous Functions - 03 anonymous recursive function
-  */
+ */
 (function (logValue) {
     var x = "Hello!!";
     console.log(logValue);
@@ -86,6 +86,29 @@ var log = function (logData, logType) {
  * Lambda Functions - 01 add x and y
  */
 var addTwoNumbers = function (x, y) { return y + x; };
+/*
+ * Lambda Functions - 03 add x and y
+ * data type is not mandatory (x:number , y:number) can be replaced by (x , y)
+ */
+var addTwoNumbersAndLog = function (x, y) {
+    var z = y + x;
+    console.info(z);
+    return z; // the return statement to return the value
+};
+/*
+ * Lambda Functions - 03 no parameters passed
+ */
+var LamdaFunctionSayHelloWorld = function () {
+    console.info("Hello World");
+};
+function sayHello(name, lastName) {
+    if (lastName == undefined) {
+        console.log("Hello " + name);
+    }
+    else {
+        console.log("Hello " + name + "  " + lastName);
+    }
+}
 /***
  * runs with different values
  *
@@ -105,4 +128,8 @@ log("Result =  " + multiplicationByFactor(50, 0.3), "ERROR");
 log("==============(Anonymous Functions )==============");
 log("Square of " + 12 + " is : " + square(12));
 log("==============(Lambda Functions)==============");
-log("Result of adding 100 and 12 is : " + addTwoNumbers(100, 12)); //outputs 110
+log("Result of adding 100 and 12 is : " + addTwoNumbers(100, 12));
+log("Result of adding 100 and 12 is : " + addTwoNumbersAndLog(100, 12)); // will have an additional log
+LamdaFunctionSayHelloWorld();
+sayHello("abc");
+sayHello("abc", "pqr");

@@ -1,5 +1,3 @@
-
-
 /**
  * (Rest Parameters) - Variable argument - 01
  * The method passes variable argument to the method
@@ -7,11 +5,11 @@
  * */
 
 
-function addNumbers(...nums:number[]) : number {
-    console.log("calling addNumbers with params " + nums );
+function addNumbers(...nums: number[]): number {
+    console.log("calling addNumbers with params " + nums);
     var i;
-    var sum:number = 0;
-    for(i = 0;i<nums.length;i++) {
+    var sum: number = 0;
+    for (i = 0; i < nums.length; i++) {
         sum = sum + nums[i];
     }
     console.log("sum of the numbers : " + sum)
@@ -26,16 +24,16 @@ function addNumbers(...nums:number[]) : number {
  * */
 
 
-function addNumbersOptionalPametersInFront(salutation?: string, ...nums:number[]) {
-    console.log("calling addNumbersOptionalPametersInFront with params " + salutation + " and  " + nums );
+function addNumbersOptionalPametersInFront(salutation?: string, ...nums: number[]) {
+    console.log("calling addNumbersOptionalPametersInFront with params " + salutation + " and  " + nums);
     var i;
-    var sum:number = 0;
-    for(i = 0;i<nums.length;i++) {
+    var sum: number = 0;
+    for (i = 0; i < nums.length; i++) {
         sum = sum + nums[i];
     }
     if (salutation != undefined) {
-        console.log(salutation + ",sum of the numbers : "  + sum);
-    }else{
+        console.log(salutation + ",sum of the numbers : " + sum);
+    } else {
         console.log("sum of the numbers : " + sum)
     }
 }
@@ -44,11 +42,11 @@ function addNumbersOptionalPametersInFront(salutation?: string, ...nums:number[]
 /**
  * Default Values for Parameters - 01
  * Default value parameter should always be the last parameter
-  */
+ */
 
 
-function multiplicationByFactor(numberValue: number , factor : number = 0.1 ) : number  {
-    console.log("calling multiplicationByFactor with params " + numberValue + " and  " + factor );
+function multiplicationByFactor(numberValue: number, factor: number = 0.1): number {
+    console.log("calling multiplicationByFactor with params " + numberValue + " and  " + factor);
     return numberValue * factor
 }
 
@@ -57,8 +55,8 @@ function multiplicationByFactor(numberValue: number , factor : number = 0.1 ) : 
  * Anonymous Functions - 01 calculate square
  */
 
-var square =  function(a : number){
-     return a * a ;
+var square = function (a: number) {
+    return a * a;
 };
 
 
@@ -67,25 +65,24 @@ var square =  function(a : number){
  * Utility function : to log data
  */
 
-var log = function ( logData : any , logType : String = "DEBUG"){
-    if(logType==null || logType===undefined || logType == "DEBUG" ){
+var log = function (logData: any, logType: String = "DEBUG") {
+    if (logType == null || logType === undefined || logType == "DEBUG") {
         console.log("DEBUG LOG : " + logData);
-    }else if (logType == "ERROR" ){
+    } else if (logType == "ERROR") {
         console.error("ERROR LOG : " + logData);
-    }else if (logType == "WARN" ){
+    } else if (logType == "WARN") {
         console.warn("WARN LOG : " + logData);
-    }else if (logType == "INFO" ){
+    } else if (logType == "INFO") {
         console.info("INFO LOG : " + logData);
     }
 };
 
 
-
 /*
  * Anonymous Functions - 03 anonymous recursive function
-  */
+ */
 
-(function (logValue:string) {
+(function (logValue: string) {
     var x = "Hello!!";
     console.log(logValue)
 })("Hello Ji!!")      // the function invokes itself using a pair of parentheses ()
@@ -94,8 +91,44 @@ var log = function ( logData : any , logType : String = "DEBUG"){
  * Lambda Functions - 01 add x and y
  */
 
-var addTwoNumbers = (x:number , y:number)=>y + x
+var addTwoNumbers = (x: number, y: number) => y + x
 
+
+/*
+ * Lambda Functions - 03 add x and y
+ * data type is not mandatory (x:number , y:number) can be replaced by (x , y)
+ */
+
+var addTwoNumbersAndLog = (x: number, y: number) => {
+    var z = y + x
+    console.info(z);
+    return z; // the return statement to return the value
+}
+
+
+/*
+ * Lambda Functions - 03 no parameters passed
+ */
+
+var LamdaFunctionSayHelloWorld = () => {
+    console.info("Hello World");
+
+}
+
+/*
+ * Funtion Overloading
+ */
+function sayHello(name: string): void;
+function sayHello(name: string, lastName: string): void;
+
+
+function sayHello(name: string, lastName?: string): void {
+    if (lastName == undefined) {
+        console.log("Hello " + name);
+    } else {
+        console.log("Hello " + name + "  " + lastName);
+    }
+}
 
 
 /***
@@ -112,11 +145,14 @@ addNumbersOptionalPametersInFront(null, 1, 2, 3);
 log("==============(Default parameters)==============");
 log("Without Passing variable with default value as  params ");
 log("Result =  " + multiplicationByFactor(addNumbers(10, 10, 10, 10, 10)), "WARN");
-log("Passing variable with default value as  params " , "INFO");
-log("Result =  " + multiplicationByFactor(50, 0.3) , "ERROR");
+log("Passing variable with default value as  params ", "INFO");
+log("Result =  " + multiplicationByFactor(50, 0.3), "ERROR");
 log("==============(Anonymous Functions )==============");
 log("Square of " + 12 + " is : " + square(12));
 log("==============(Lambda Functions)==============");
-log("Result of adding 100 and 12 is : " + addTwoNumbers(100 , 12))      //outputs 110
-
+log("Result of adding 100 and 12 is : " + addTwoNumbers(100, 12));
+log("Result of adding 100 and 12 is : " + addTwoNumbersAndLog(100, 12)); // will have an additional log
+LamdaFunctionSayHelloWorld();
+sayHello("abc");
+sayHello("abc", "pqr");
 
