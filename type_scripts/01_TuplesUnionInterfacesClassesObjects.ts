@@ -7,7 +7,7 @@ var mytuple = [10, "Hello"];
 /*
  * Function to concatenate values of Tuples and return as string
  */
-function concatinateTuples(mytuple: any[]) : any {
+function concatinateTuples(mytuple: any) : any {
     var retValue = "";
     for (var val = 0 ; val < mytuple.length ; val++) {
         retValue = retValue + ((val==0)? "" :",") + mytuple[val];
@@ -47,6 +47,53 @@ var log = function (logData: any, logType: String = "DEBUG") {
     }
 };
 
+/**
+ * Typescript - Union 01
+ * Typescript allows a variable to store more than one datatypes
+ *
+ */
+
+function unionInAction(){
+    var val:string|number; // variable of either type string or number
+    val = "string id";
+    log("value(string) "+val);
+    val = 12123;
+    log("value(numeric) "+val);
+}
+
+
+/*
+* Typescript - Union Type and Arrays
+* */
+
+function unionOfArrays(){
+    var arr:number[]|string[];
+    var i:number;
+    arr = [1,2,4];
+    console.log("**numeric array**");
+    log(concatinateTuples(arr));
+    arr = ["Mumbai","Pune","Delhi"];
+    console.log("**string array**");
+    log(concatinateTuples(arr));
+    // arr = ["Mumbai",2,"Delhi"];
+    // console.log("**mixed array - give you compilation error**");
+    // log(concatinateTuples(arr));
+}
+
+
+function logTypeOf(name:any){
+    log(typeof name);
+}
+
+function disp(name:string|string[]) {
+    logTypeOf(name);
+    if(typeof name == "string") {
+        log(name)
+    } else {
+        var i;
+        log(concatinateTuples(name))
+    }
+}
 
 /***
  * runs with different values
@@ -62,6 +109,10 @@ log("popped value : " + popoutLastValueFromTuple());
 log("New Touple items : " + concatinateTuples (mytuple));
 log("popped value : " + popoutLastValueFromTuple());
 log("New Touple items : " + concatinateTuples (mytuple));
-
-
+log("==============(Union)==============");
+unionInAction()
+disp("mark")
+log("Printing names array....")
+disp(["Mark","Tom","Mary","John"])
+unionOfArrays()
 
