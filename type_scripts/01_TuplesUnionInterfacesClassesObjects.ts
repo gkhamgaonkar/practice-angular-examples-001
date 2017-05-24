@@ -95,6 +95,67 @@ function disp(name:string|string[]) {
     }
 }
 
+
+class Car {
+    //field
+    engine:string;
+    makeCountry:string;
+    //private make:string; making the property private will not let it be accessible to sub classes.
+    make:string;
+    carCompany :string;
+
+    //constructor
+    constructor(engine:string = "1000cc") {
+        this.engine = engine
+    }
+    // multiple constructors not allowed
+    // constructor() {
+    //     this.engine = ""
+    // }
+    //function
+    disp():string {
+        return "Engine is  :   "+this.engine;
+    }
+}
+class Honda extends Car {
+
+    constructor(engine:string, makeCountry:string){
+        super(engine);
+        this.makeCountry= makeCountry;
+        this.carCompany= "Honda";
+    }
+
+    disp():string {
+        return super.disp() + " company::" +  this.carCompany + "  country of origin::" + this.makeCountry ;
+    }
+}
+
+class HRV extends Honda {
+
+    constructor(engine:string, makeCountry:string){
+        super(engine,makeCountry);
+        this.make= "Hrv";
+    }
+
+    disp():string {
+        return super.disp() + " make::" +  this.make ;
+    }
+}
+
+function loginstanceOf(obj:any){
+    if(obj instanceof Car){
+        log("Object is instance of Car")
+    }
+    if(obj instanceof Honda){
+        log("Object is instance of Honda")
+    }
+    if(obj instanceof HRV){
+        log("Object is instance of Hrv")
+    }
+}
+
+
+
 /***
  * runs with different values
  *
@@ -114,5 +175,17 @@ unionInAction()
 disp("mark")
 log("Printing names array....")
 disp(["Mark","Tom","Mary","John"])
-unionOfArrays()
+unionOfArrays();
+log("==============(Classes)==============");
+var obj = new Car()
+loginstanceOf(obj);
+log(obj.disp());
+log("accessing obj attribute :"  + obj.engine);
+obj = new Honda("1000cc" , "Japan");
+loginstanceOf(obj);
+log(obj.disp())
+obj = new HRV("1000cc" , "Japan");
+loginstanceOf(obj);
+log(obj.disp())
+
 
