@@ -146,6 +146,14 @@ function loginstanceOf(obj) {
         log("Object is instance of Hrv");
     }
 }
+var person = {
+    firstName: "Tom",
+    lastName: "Hanks"
+    // sayHello:function() {  }  //Type template
+};
+// person.sayHello = function() {
+//     console.log("hello "+person.firstName)
+// }
 /***
  * runs with different values
  *
@@ -177,3 +185,6 @@ log(obj.disp());
 obj = new HRV("1000cc", "Japan");
 loginstanceOf(obj);
 log(obj.disp());
+//access the object values
+log("==============(Objects)==============");
+log(person.firstName + "," + person.lastName);
